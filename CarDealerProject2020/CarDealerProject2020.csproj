@@ -6,6 +6,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\Migrations\20201206092634_Initialsetup.cs" />
+    <Compile Remove="Data\Migrations\20201206092634_Initialsetup.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201206092922_Initialsetup.cs" />
+    <Compile Remove="Data\Migrations\20201206092922_Initialsetup.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201206093657_Initialsetup.cs" />
+    <Compile Remove="Data\Migrations\20201206093657_Initialsetup.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.8" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.8" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.8" />

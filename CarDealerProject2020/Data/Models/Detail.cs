@@ -37,7 +37,7 @@ namespace CarDealerProject2020.Data.Models
         [Required]
         public decimal Price { get; set; }
 
-        [ForeignKey("Stores")]
+        [ForeignKey("Store")]
         public int StoreId { get; set; }
         public Store Store { get; set; }
 

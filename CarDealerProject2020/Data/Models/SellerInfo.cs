@@ -18,9 +18,9 @@ namespace CarDealerProject2020.Data.Models
         public string Name { get; set; }
 
         [Required]
-        [ForeignKey("Stores")]
+        [ForeignKey("Store")]
         public int StoreId { get; set; }
-        public Store Stores { get; set; }
+        public Store Store { get; set; }
 
         public virtual ICollection<Deal> Deals { get; set; }
 

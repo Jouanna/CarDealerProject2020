@@ -15,9 +15,9 @@ namespace CarDealerProject2020.Data.Models
         public int Id { get; set; }
 
         [Required]
-        [ForeignKey("Details")]
-        public int DetailsId { get; set; }
-        public Detail Details { get; set; }
+        [ForeignKey("Detail")]
+        public int DetailId { get; set; }
+        public Detail Detail { get; set; }
 
         [Required]
         [ForeignKey("Vehicle")]

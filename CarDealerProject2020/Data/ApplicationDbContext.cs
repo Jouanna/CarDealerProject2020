@@ -7,7 +7,7 @@ namespace CarDealerProject2020.Data
     public class ApplicationDbContext : IdentityDbContext
     {
 
-        private const string connectionString = @"Server=.;Database=CarDealerProject2020;IntegratedSecurity=true;";
+        private const string connectionString = @"Server=.;Database=CarDealerProject2020;Integrated Security=true;";
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {}
@@ -22,7 +22,17 @@ namespace CarDealerProject2020.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            
+            base.OnModelCreating(builder);
+
+            builder.Entity<VehicleDetail>()
+                .HasOne(x => x.Detail)
+                .WithMany(y => y.VehiclesDetails)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<VehicleDetail>()
+                .HasOne(x => x.Vehicle)
+                .WithMany(y => y.VehiclesDetails)
+                .OnDelete(DeleteBehavior.Restrict);
         }
 
         public DbSet<BuyerInfo> BuyersInfos { get; set; }
