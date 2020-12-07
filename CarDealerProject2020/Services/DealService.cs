@@ -19,7 +19,18 @@ namespace CarDealerProject2020.Services
 
         public IEnumerable<DealAllViewModel> All()
         {
-            throw new NotImplementedException();
+            return this.dbContext.Deals
+                .Select(x => new DealAllViewModel
+                {
+                    Id = x.Id,
+                    BuyerId = x.BuyerId,
+                    SellerId = x.SellerId,
+                    VehicleId = x.VehicleId,
+                    Date = x.Date,
+                    Discount = x.Discount,
+                    PaymentType = x.PaymentType,
+                })
+                .ToList();
         }
 
         public void Create(DealCreateViewModel model)
@@ -40,17 +51,42 @@ namespace CarDealerProject2020.Services
 
         public void Delete(int? id)
         {
-            throw new NotImplementedException();
+            var deal = dbContext.Deals.Find(id);
+            this.dbContext.Deals.Remove(deal);
+            this.dbContext.SaveChanges();
         }
 
         public DealEditViewModel Details(int? id)
         {
-            throw new NotImplementedException();
+            return this.dbContext.Deals.Where(x => x.Id == id)
+                .Select(x => new DealEditViewModel
+                {
+                    Id = x.Id,
+                    BuyerId = x.BuyerId,
+                    SellerId = x.SellerId,
+                    VehicleId = x.VehicleId,
+                    Date = x.Date,
+                    Discount = x.Discount,
+                    PaymentType = x.PaymentType,
+                })
+                .FirstOrDefault();
         }
 
         public void Edit(DealEditViewModel model)
         {
-            throw new NotImplementedException();
+            var deal = new Deal
+            {
+                Id = model.Id,
+                BuyerId = model.BuyerId,
+                SellerId = model.SellerId,
+                VehicleId = model.VehicleId,
+                Date = model.Date,
+                Discount = model.Discount,
+                PaymentType = model.PaymentType,
+            };
+
+            this.dbContext.Deals.Update(deal);
+            this.dbContext.SaveChanges();
         }
     }
 }
