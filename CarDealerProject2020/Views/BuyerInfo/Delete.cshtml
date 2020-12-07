@@ -1,0 +1,24 @@
+﻿@model BuyerInfoEditViewModel
+
+@{
+    ViewData["Title"] = "Изтрий";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>Номер - @Model.Id</p>
+<p>Име - @Model.FirstName</p>
+<p>Презиме - @Model.MiddleName</p>
+<p>Фамилия - @Model.LastName</p>
+<p>Населено място - @Model.City</p>
+<p>Адрес - @Model.Address</p>
+<p>Телефонен номер - @Model.Phone</p>
+<p>Номер на шофьорска книжка - @Model.DriverLicenseNumber</p>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="Id" />
+    <input type="submit" value="Изтрий напълно" class="btn btn-danger" />
+    <a asp-action="Index" class="btn btn-success">Назад</a>
+</form>
+
+

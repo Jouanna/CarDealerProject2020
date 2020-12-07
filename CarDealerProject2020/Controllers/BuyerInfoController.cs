@@ -10,9 +10,9 @@ namespace CarDealerProject2020.Controllers
 {
     public class BuyerInfoController : Controller
     {
-        private readonly BuyerInfoService service;
+        private readonly IBuyerInfoService service;
 
-        public BuyerInfoController(BuyerInfoService service)
+        public BuyerInfoController(IBuyerInfoService service)
         {
             this.service = service;
         }

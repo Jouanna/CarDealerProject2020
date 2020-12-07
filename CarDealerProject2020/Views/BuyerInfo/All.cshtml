@@ -1,0 +1,62 @@
+﻿@model IEnumerable<BuyerInfoAllViewModel>
+
+@{
+    ViewData["Title"] = "Купувач";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<a class="btn btn-primary" asp-action="Create">Създай</a>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>
+                Номер
+            </th>
+            <th>
+                Име
+            </th>
+            <th>
+                Фамилия
+            </th>
+            <th>
+                Град
+            </th>
+            <th>
+                Телефон
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @item.FirstName
+                </td>
+                <td>
+                    @item.LastName
+                </td>
+                <td>
+                    @item.City
+                </td>
+                <td>
+                    @item.Phone
+                </td>
+                <td>
+                    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Редактирай</a>
+                    <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">Детайли</a>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Към изтрий</a>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+
+</table>
+
