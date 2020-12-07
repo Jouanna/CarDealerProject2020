@@ -37,6 +37,7 @@ namespace CarDealerProject2020
             services.AddRazorPages();
 
             services.AddTransient<IBuyerInfoService, BuyerInfoService>();
+            services.AddTransient<IDealService, DealService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
