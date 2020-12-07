@@ -1,4 +1,5 @@
 using CarDealerProject2020.Data;
+using CarDealerProject2020.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -34,6 +35,8 @@ namespace CarDealerProject2020
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.AddTransient<IBuyerInfoService, BuyerInfoService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
