@@ -6,6 +6,14 @@
 
 <h1>@ViewData["Title"]</h1>
 
+<head>
+    <style>
+        body {
+            background-color: MintCream;
+        }
+    </style>
+</head>
+
 <form asp-action="Edit" asp-controller="BuyerInfo" method="post">
     <label asp-for="FirstName" class="alert-warning">Първо име</label>
     <input asp-for="FirstName" class="alert-info" />
@@ -36,6 +44,6 @@
     <span asp-validation-for="DriverLicenseNumber" class="text-danger"></span><br />
 
     <input type="submit" value="Запази" class="btn btn-outline-success" />
-    <a asp-action="Index" class="btn btn-info">Назад</a>
+    <a asp-action="Index" class="btn btn-success">Назад</a>
 
 </form>
