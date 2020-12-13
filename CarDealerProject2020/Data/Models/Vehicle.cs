@@ -14,6 +14,7 @@ namespace CarDealerProject2020.Data.Models
         public int Id { get; set; }
 
         [Required]
+        [MaxLength(50)]
         public string BrandName { get; set; }
 
         public virtual ICollection<VehicleDetail> VehiclesDetails { get; set; }

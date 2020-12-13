@@ -35,6 +35,7 @@ namespace CarDealerProject2020.Data.Models
         public string Color { get; set; }
 
         [Required]
+        [Range(1, 100000)]
         public decimal Price { get; set; }
 
         [ForeignKey("Store")]
