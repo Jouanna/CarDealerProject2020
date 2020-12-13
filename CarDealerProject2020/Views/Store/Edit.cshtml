@@ -1,0 +1,33 @@
+﻿@model StoreEditViewModel
+
+@{
+    ViewData["Title"] = "Редактирай";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<head>
+    <style>
+        body {
+            background-color: MintCream;
+        }
+    </style>
+</head>
+
+<form asp-action="Edit" asp-controller="Store" method="post">
+    <label asp-for="StoreName" class="alert-warning">Първо име</label>
+    <input asp-for="StoreName" class="alert-info" />
+    <span asp-validation-for="StoreName" class="text-danger"></span><br />
+
+    <label asp-for="City" class="alert-warning">Град</label>
+    <input asp-for="City" class="alert-info" />
+    <span asp-validation-for="City" class="text-danger"></span><br />
+
+    <label asp-for="Address" class="alert-warning">Адрес</label>
+    <input asp-for="Address" class="alert-info" />
+    <span asp-validation-for="Address" class="text-danger"></span><br />
+
+    <input type="submit" value="Запази" class="btn btn-outline-success" />
+    <a asp-action="Index" class="btn btn-success">Назад</a>
+
+</form>

@@ -1,4 +1,4 @@
-﻿@model SellerInfoEditViewModel
+﻿@model StoreEditViewModel
 
 @{
     ViewData["Title"] = "Изтрий";
@@ -15,14 +15,16 @@
 </head>
 
 <p>Номер - @Model.Id</p>
-<p>Име - @Model.Name</p>
-<p>Презиме - @Model.StoreId</p>
+<p>Име на магазин - @Model.StoreName</p>
+<p>Населено място - @Model.City</p>
+<p>Адрес - @Model.Address</p>
+<p>&nbsp;</p>
+<p style="color:#FF0000";>Внимание! Информацията за всички продавачи, работещи в този магазин, също ще бъде изтрита!</pstyle="color:#FF0000";>
 
 <form asp-action="Delete">
     <input type="hidden" asp-for="Id" />
     <input type="submit" value="Изтрий напълно" class="btn btn-danger" />
     <a asp-action="Index" class="btn btn-success">Назад</a>
 </form>
-
 
 

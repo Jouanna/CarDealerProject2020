@@ -10,5 +10,7 @@ namespace CarDealerProject2020.ViewModels
         public int Id { get; set; }
         public string Name { get; set; }
         public int StoreId { get; set; }
+
+        public string StoreName { get; set; }
     }
 }

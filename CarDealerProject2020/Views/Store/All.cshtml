@@ -1,7 +1,7 @@
-﻿@model IEnumerable<SellerInfoAllViewModel>
+﻿@model IEnumerable<StoreAllViewModel>
 
 @{
-    ViewData["Title"] = "Продавач";
+    ViewData["Title"] = "Магазин";
 }
 
 <h1>@ViewData["Title"]</h1>
@@ -23,10 +23,10 @@
                 Номер
             </th>
             <th>
-                Име
+                Име на магазин
             </th>
             <th>
-                Магазин
+                Град
             </th>
         </tr>
     </thead>
@@ -39,10 +39,10 @@
                     @item.Id
                 </td>
                 <td>
-                    @item.Name
+                    @item.StoreName
                 </td>
                 <td>
-                    @item.StoreId - @item.StoreName
+                    @item.City
                 </td>
                 <td>
                     <a class="btn btn-success" asp-action="Edit" asp-route-id="@item.Id">Редактирай</a>
@@ -55,3 +55,5 @@
     </tbody>
 
 </table>
+
+

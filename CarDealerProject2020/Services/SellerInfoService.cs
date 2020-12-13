@@ -25,6 +25,7 @@ namespace CarDealerProject2020.Services
                     Id = x.Id,
                     Name = x.Name,
                     StoreId = x.StoreId,
+                    StoreName = x.Store.StoreName,
                 })
                 .ToList();
         }
@@ -56,6 +57,7 @@ namespace CarDealerProject2020.Services
                     Id = x.Id,
                     Name = x.Name,
                     StoreId = x.StoreId,
+                    StoreName = x.Store.StoreName,
                 })
                 .FirstOrDefault();
         }
