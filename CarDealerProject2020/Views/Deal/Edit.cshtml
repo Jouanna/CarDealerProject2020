@@ -1,0 +1,52 @@
+﻿@model DealEditViewModel
+
+@{
+    ViewData["Title"] = "Редактирай";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<head>
+    <style>
+        body {
+            background-color: MintCream;
+        }
+    </style>
+</head>
+
+<form asp-action="Edit" asp-controller="Deal" method="post">
+    <label asp-for="SellerId" class="alert-warning">Продавач</label>
+    <input asp-for="SellerId" class="alert-info" />
+    <span asp-validation-for="SellerId" class="text-danger"></span><br />
+
+    <label asp-for="BuyerId" class="alert-warning">Купувач</label>
+    <input asp-for="BuyerId" class="alert-info" />
+    <span asp-validation-for="BuyerId" class="text-danger"></span><br />
+
+    <label asp-for="VehicleId" class="alert-warning">Автомобил</label>
+    <input asp-for="VehicleId" class="alert-info" />
+    <span asp-validation-for="VehicleId" class="text-danger"></span><br />
+
+    <label asp-for="Date" class="alert-warning">Дата</label>
+    <input type="date" asp-for="Date" class="alert-info" />
+    <span asp-validation-for="Date" class="text-danger"></span><br />
+
+    <label asp-for="Discount" class="alert-warning">Отстъпка</label>
+    <input asp-for="Discount" class="alert-info" />
+    <span asp-validation-for="Discount" class="text-danger"></span><br />
+
+    <form action="/action_page.php">
+        <label for="PaymentType" class="alert-warning">Начин на плащане</label>
+        <select class="alert-info" name="PaymentType" id="PaymentType">
+            <option value="Брой">Брой</option>
+            <option value="Карта">Карта</option>
+            <option value="Кредит">Кредит</option>
+        </select>
+        <br><br>
+    </form>
+
+    <input type="submit" value="Запази" class="btn btn-outline-success" />
+    <a asp-action="Index" class="btn btn-success">Назад</a>
+
+</form>
+

@@ -18,5 +18,12 @@ namespace CarDealerProject2020.ViewModels
         public DateTime Date { get; set; }
         public decimal Discount { get; set; }
         public PaymentType PaymentType { get; set; }
+
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Name { get; set; }
+        public string BrandName { get; set; }
+        public string Type { get; set; }
+        public string Model { get; set; }
     }
 }

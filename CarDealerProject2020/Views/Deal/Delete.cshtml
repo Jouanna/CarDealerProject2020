@@ -1,4 +1,4 @@
-﻿@model SellerInfoEditViewModel
+﻿@model DealEditViewModel
 
 @{
     ViewData["Title"] = "Изтрий";
@@ -15,8 +15,12 @@
 </head>
 
 <p>Номер - @Model.Id</p>
-<p>Име - @Model.Name</p>
-<p>Магазин - @Model.StoreId - @Model.StoreName</p>
+<p>Продавач - @Model.SellerId - @Model.Name</p>
+<p>Купувач - @Model.BuyerId - @Model.FirstName @Model.LastName</p>
+<p>Автомобил - @Model.VehicleId - @Model.BrandName @Model.Model</p>
+<p>Дата - @Model.Date</p>
+<p>Отстъпка - @Model.Discount</p>
+<p>Начин на плащане - @Model.PaymentType</p>
 
 <form asp-action="Delete">
     <input type="hidden" asp-for="Id" />

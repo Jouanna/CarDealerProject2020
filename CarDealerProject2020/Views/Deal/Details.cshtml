@@ -1,0 +1,27 @@
+﻿@model DealEditViewModel
+@{
+    ViewData["Title"] = "Детайли";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<head>
+    <style>
+        body {
+            background-color: MintCream;
+        }
+    </style>
+</head>
+
+<p>Номер - @Model.Id</p>
+<p>Продавач - @Model.SellerId - @Model.Name</p>
+<p>Купувач - @Model.BuyerId - @Model.FirstName @Model.LastName</p>
+<p>Автомобил - @Model.VehicleId - @Model.BrandName @Model.Model</p>
+<p>Дата - @Model.Date</p>
+<p>Отстъпка - @Model.Discount</p>
+<p>Начин на плащане - @Model.PaymentType</p>
+
+<a asp-action="Index" class="btn btn-success">Назад</a>
+
+
+
