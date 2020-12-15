@@ -1,7 +1,8 @@
-﻿@model VehicleDetailCreateViewModel
+﻿@using CarDealerProject2020.Data.Enumerations
+@model DetailCreateViewModel
 
 @{
-    ViewData["Title"] = "Добави нова автомобил";
+    ViewData["Title"] = "Добави нов автомобил";
 }
 
 <h1>@ViewData["Title"]</h1>
@@ -14,22 +15,20 @@
     </style>
 </head>
 
-<form asp-action="Create" asp-controller="Deal" method="post">
-    <label asp-for="DetailId" class="alert-warning">Детайлен номер</label>
-    <input asp-for="DetailId" class="alert-info" />
-    <span asp-validation-for="DetailId" class="text-danger"></span><br />
+@{
+    var stores = this.Model.Stores.Select(x => new SelectListItem(x.Value, x.Key));
+    var vehicles = this.Model.Vehicles.Select(x => new SelectListItem(x.Value, x.Key));
+ }
 
-    <label asp-for="VehicleId" class="alert-warning">Номер на автомобил</label>
-    <input asp-for="VehicleId" class="alert-info" />
-    <span asp-validation-for="VehicleId" class="text-danger"></span><br />
-
-    <label asp-for="BrandName" class="alert-warning">Автомобил</label>
-    <input asp-for="BrandName" class="alert-info" />
-    <span asp-validation-for="BrandName" class="text-danger"></span><br />
+<form asp-action="Create" asp-controller="Detail" method="post">
 
     <label asp-for="Type" class="alert-warning">Тип</label>
     <input asp-for="Type" class="alert-info" />
     <span asp-validation-for="Type" class="text-danger"></span><br />
+
+    <label asp-for="VehicleId" class="alert-warning">Марка</label>
+    <select asp-for="VehicleId" asp-items="vehicles" class="alert-info"></select>
+    <span asp-validation-for="VehicleId" class="text-danger"></span><br />
 
     <label asp-for="Model" class="alert-warning">Модел</label>
     <input asp-for="Model" class="alert-info" />
@@ -39,16 +38,9 @@
     <input asp-for="Year" class="alert-info" />
     <span asp-validation-for="Year" class="text-danger"></span><br />
 
-    <form action="/action_page.php">
-        <label for="FuelType" class="alert-warning">Гориво</label>
-        <select class="alert-info" name="FuelType" id="FuelType">
-            <option value="Бензин">Бензин</option>
-            <option value="Дизел">Дизел</option>
-            <option value="Газ">Газ</option>
-            <option value="Метан">Метан</option>
-        </select>
-        <br><br>
-    </form>
+    <label asp-for="Fuel" class="alert-warning">Гориво</label>
+    <select asp-for="Fuel" asp-items="@Html.GetEnumSelectList<FuelType>();" class="alert-info"></select>
+    <span asp-validation-for="Fuel" class="text-danger"></span><br />
 
     <label asp-for="HorsePower" class="alert-warning">Мощност</label>
     <input asp-for="HorsePower" class="alert-info" />
@@ -63,7 +55,7 @@
     <span asp-validation-for="Price" class="text-danger"></span><br />
 
     <label asp-for="StoreId" class="alert-warning">Име на магазин</label>
-    <input asp-for="StoreId" class="alert-info" />
+    <select asp-for="StoreId" asp-items="stores" class="alert-info"></select>
     <span asp-validation-for="StoreId" class="text-danger"></span><br />
 
     <input type="submit" value="Запази" class="btn btn-outline-success" />

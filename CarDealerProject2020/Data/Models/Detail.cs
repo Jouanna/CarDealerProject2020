@@ -10,7 +10,8 @@ namespace CarDealerProject2020.Data.Models
     {
         public Detail()
         {
-            this.VehiclesDetails = new HashSet<VehicleDetail>();
+            //this.VehiclesDetails = new HashSet<VehicleDetail>();
+            this.Deals = new HashSet<Deal>();
         }
 
         [Key]
@@ -42,7 +43,14 @@ namespace CarDealerProject2020.Data.Models
         public int StoreId { get; set; }
         public Store Store { get; set; }
 
-        public virtual ICollection<VehicleDetail> VehiclesDetails { get; set; }
+        [Required]
+        [ForeignKey(nameof(Vehicle))]
+        public int VehicleId { get; set; }
+        public Vehicle Vehicle { get; set; }
+
+        //public virtual ICollection<VehicleDetail> VehiclesDetails { get; set; }
+
+        public virtual ICollection<Deal> Deals { get; set; }
 
     }
 }

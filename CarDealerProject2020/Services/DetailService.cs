@@ -24,6 +24,7 @@ namespace CarDealerProject2020.Services
                 {
                     Id = x.Id,
                     Type = x.Type,
+                    BrandName = x.Vehicle.BrandName,
                     Model = x.Model,
                     Year = x.Year,
                     Fuel = x.Fuel,
@@ -47,6 +48,7 @@ namespace CarDealerProject2020.Services
                 Color = model.Color,
                 Price = model.Price,
                 StoreId = model.StoreId,
+                VehicleId = model.VehicleId,
             };
 
             this.dbContext.Details.Add(detail);
@@ -95,6 +97,28 @@ namespace CarDealerProject2020.Services
 
             this.dbContext.Details.Update(detail);
             this.dbContext.SaveChanges();
+        }
+
+        public IEnumerable<KeyValuePair<string, string>> Stores()
+        {
+            return this.dbContext.Stores.Select(x => new
+            {
+                Id = x.Id.ToString(),
+                Name = x.StoreName + " " + x.Id,
+            })
+                .ToList()
+                .Select(x => new KeyValuePair<string, string>(x.Id, x.Name));
+        }
+
+        public IEnumerable<KeyValuePair<string, string>> Vehicles()
+        {
+            return this.dbContext.Vehicles.Select(x => new
+            {
+                Id = x.Id.ToString(),
+                Name = x.BrandName + " " + x.Id,
+            })
+                .ToList()
+                .Select(x => new KeyValuePair<string, string>(x.Id, x.Name));
         }
     }
 }

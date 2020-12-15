@@ -17,5 +17,9 @@ namespace CarDealerProject2020.Services
         DealEditViewModel Details(int? id);
 
         void Delete(int? id);
+
+        IEnumerable<KeyValuePair<string, string>> Sellers();
+        IEnumerable<KeyValuePair<string, string>> Buyers();
+        IEnumerable<KeyValuePair<string, string>> Cars();
     }
 }

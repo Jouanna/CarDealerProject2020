@@ -29,19 +29,24 @@ namespace CarDealerProject2020.Controllers
 
         public IActionResult Create()
         {
-            return this.View();
+            var viewModel = new DetailCreateViewModel
+            {
+                Stores = this.service.Stores(),
+                Vehicles = this.service.Vehicles(),
+            };
+            return this.View(viewModel);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(DetailCreateViewModel model)
+        public IActionResult Create(DetailCreateViewModel input)
         {
             if (ModelState.IsValid)
             {
-                this.service.Create(model);
+                this.service.Create(input);
                 return this.RedirectToAction("All");
             }
-            return this.View(model);
+            return this.View(input);
         }
 
         public IActionResult Edit(int? id)

@@ -7,7 +7,7 @@ namespace CarDealerProject2020.Data.Models
     {
         public Vehicle()
         {
-            this.VehiclesDetails = new HashSet<VehicleDetail>();
+            this.Details = new HashSet<Detail>();
         }
 
         [Key]
@@ -17,7 +17,7 @@ namespace CarDealerProject2020.Data.Models
         [MaxLength(50)]
         public string BrandName { get; set; }
 
-        public virtual ICollection<VehicleDetail> VehiclesDetails { get; set; }
+        public virtual ICollection<Detail> Details { get; set; }
 
     }
 }

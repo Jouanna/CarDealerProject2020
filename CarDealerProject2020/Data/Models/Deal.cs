@@ -16,9 +16,9 @@ namespace CarDealerProject2020.Data.Models
         public int SellerId { get; set; }
         public SellerInfo SellerInfo { get; set; }
 
-        [ForeignKey("VehicleDetail")]
-        public int VehicleId { get; set; }
-        public VehicleDetail VehicleDetail { get; set; }
+        [ForeignKey(nameof(Detail))]
+        public int DetailId { get; set; }
+        public Detail Detail { get; set; }
 
         public DateTime Date { get; set; }
         public decimal Discount { get; set; }

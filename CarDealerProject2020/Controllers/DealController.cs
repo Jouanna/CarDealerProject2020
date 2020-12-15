@@ -29,7 +29,14 @@ namespace CarDealerProject2020.Controllers
 
         public IActionResult Create()
         {
-            return this.View();
+            var viewModel = new DealCreateViewModel
+            {
+                Sellers = this.service.Sellers(),
+                Buyers = this.service.Buyers(),
+                Cars = this.service.Cars(),
+                Date = DateTime.Now.Date,
+            };
+            return this.View(viewModel);
         }
 
         [HttpPost]

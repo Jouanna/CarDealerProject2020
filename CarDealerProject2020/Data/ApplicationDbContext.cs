@@ -24,20 +24,19 @@ namespace CarDealerProject2020.Data
         {
             base.OnModelCreating(builder);
 
-            builder.Entity<VehicleDetail>()
+            builder.Entity<Deal>()
                 .HasOne(x => x.Detail)
-                .WithMany(y => y.VehiclesDetails)
+                .WithMany(y => y.Deals)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.Entity<VehicleDetail>()
+            builder.Entity<Detail>()
                 .HasOne(x => x.Vehicle)
-                .WithMany(y => y.VehiclesDetails)
+                .WithMany(y => y.Details)
                 .OnDelete(DeleteBehavior.Restrict);
         }
 
         public DbSet<BuyerInfo> BuyersInfos { get; set; }
         public DbSet<Deal> Deals { get; set; }
-        public DbSet<VehicleDetail> VehicleDetails { get; set; }
         public DbSet<Detail> Details { get; set; }
         public DbSet<SellerInfo> SellerInfos { get; set; }
         public DbSet<Store> Stores { get; set; }

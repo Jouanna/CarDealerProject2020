@@ -1,4 +1,4 @@
-﻿@model IEnumerable<VehicleDetailAllViewModel>
+﻿@model IEnumerable<VehicleAllViewModel>
 
 @{
     ViewData["Title"] = "Автомобили";
@@ -25,12 +25,7 @@
             <th>
                 Марка
             </th>
-            <th>
-                Модел
-            </th>
-            <th>
-                Година
-            </th>
+            
         </tr>
     </thead>
 
@@ -42,14 +37,9 @@
                     @item.Id
                 </td>
                 <td>
-                    @item.VehicleId - @item.BrandName
+                    @item.BrandName
                 </td>
-                <td>
-                    @item.Model
-                </td>
-                <td>
-                    @item.Year
-                </td>
+               
                 <td>
                     <a class="btn btn-success" asp-action="Edit" asp-route-id="@item.Id">Редактирай</a>
                     <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">Детайли</a>
