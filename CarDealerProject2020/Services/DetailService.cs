@@ -76,6 +76,9 @@ namespace CarDealerProject2020.Services
                     Color = x.Color,
                     Price = x.Price,
                     StoreId = x.StoreId,
+                    BrandName = x.Vehicle.BrandName,
+                    StoreName = x.Store.StoreName,
+                    VehicleId = x.VehicleId,
                 })
                 .FirstOrDefault();
         }
@@ -93,6 +96,7 @@ namespace CarDealerProject2020.Services
                 Color = model.Color,
                 Price = model.Price,
                 StoreId = model.StoreId,
+                
             };
 
             this.dbContext.Details.Update(detail);

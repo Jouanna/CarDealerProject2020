@@ -68,11 +68,16 @@ namespace CarDealerProject2020.Services
                 {
                     Id = x.Id,
                     BuyerId = x.BuyerId,
+                    FirstName = x.BuyerInfo.FirstName,
+                    LastName = x.BuyerInfo.LastName,
                     SellerId = x.SellerId,
+                    Name = x.SellerInfo.Name,
                     VehicleId = x.Detail.VehicleId,
                     Date = x.Date,
                     Discount = x.Discount,
                     PaymentType = x.PaymentType,
+                    BrandName = x.Detail.Vehicle.BrandName,
+                    Model = x.Detail.Model,
                 })
                 .FirstOrDefault();
         }

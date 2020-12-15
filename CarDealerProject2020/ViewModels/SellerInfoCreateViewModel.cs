@@ -12,5 +12,7 @@ namespace CarDealerProject2020.ViewModels
         [Required(ErrorMessage = "Необходимо е да въведете марка на автомобил.")]
         public string Name { get; set; }
         public int StoreId { get; set; }
+
+        public IEnumerable<KeyValuePair<string, string>> Stores { get; set; }
     }
 }

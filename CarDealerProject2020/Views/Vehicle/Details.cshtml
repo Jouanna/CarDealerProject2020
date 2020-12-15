@@ -1,0 +1,23 @@
+﻿@model VehicleEditViewModel
+@{
+    ViewData["Title"] = "Детайли";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<head>
+    <style>
+        body {
+            background-color: MintCream;
+        }
+    </style>
+</head>
+
+<p>Номер - @Model.Id</p>
+<p>Марка - @Model.BrandName</p>
+
+
+<a asp-action="Index" class="btn btn-success">Назад</a>
+
+
+

@@ -74,5 +74,16 @@ namespace CarDealerProject2020.Services
             this.dbContext.SellerInfos.Update(sellerInfo);
             this.dbContext.SaveChanges();
         }
+
+        public IEnumerable<KeyValuePair<string, string>> Stores()
+        {
+            return this.dbContext.Stores.Select(x => new
+            {
+                Id = x.Id.ToString(),
+                Name = x.StoreName + " " + x.Id,
+            })
+                .ToList()
+                .Select(x => new KeyValuePair<string, string>(x.Id, x.Name));
+        }
     }
 }

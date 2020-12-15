@@ -13,6 +13,9 @@
         }
     </style>
 </head>
+@{
+    var stores = this.Model.Stores.Select(x => new SelectListItem(x.Value, x.Key));
+}
 
 <form asp-action="Create" asp-controller="SellerInfo" method="post">
     <label asp-for="Name" class="alert-warning">Име</label>
@@ -20,7 +23,7 @@
     <span asp-validation-for="Name" class="text-danger"></span><br />
 
     <label asp-for="StoreId" class="alert-warning">Номер на магазин</label>
-    <input asp-for="StoreId" class="alert-info" />
+    <select asp-for="StoreId" asp-items="stores" class="alert-info"></select>
     <span asp-validation-for="StoreId" class="text-danger"></span><br />
 
     <input type="submit" value="Запази" class="btn btn-outline-success" />

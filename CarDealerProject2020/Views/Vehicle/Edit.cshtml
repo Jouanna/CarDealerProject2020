@@ -1,0 +1,27 @@
+﻿@model VehicleEditViewModel
+
+@{
+    ViewData["Title"] = "Редактирай";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<head>
+    <style>
+        body {
+            background-color: MintCream;
+        }
+    </style>
+</head>
+
+<form asp-action="Edit" asp-controller="Vehicle" method="post">
+    <label asp-for="BrandName" class="alert-warning">Марка</label>
+    <input asp-for="BrandName" class="alert-info" />
+    <span asp-validation-for="BrandName" class="text-danger"></span><br />
+
+    <input type="submit" value="Запази" class="btn btn-outline-success" />
+    <a asp-action="Index" class="btn btn-success">Назад</a>
+
+</form>
+
+
