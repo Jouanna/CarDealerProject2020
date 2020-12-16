@@ -25,5 +25,9 @@ namespace CarDealerProject2020.ViewModels
         public string BrandName { get; set; }
         public string Type { get; set; }
         public string Model { get; set; }
+
+        public IEnumerable<KeyValuePair<string, string>> Sellers { get; set; }
+        public IEnumerable<KeyValuePair<string, string>> Buyers { get; set; }
+        public IEnumerable<KeyValuePair<string, string>> Cars { get; set; }
     }
 }

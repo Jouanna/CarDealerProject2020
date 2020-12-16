@@ -62,20 +62,21 @@ namespace CarDealerProject2020.Controllers
             {
                 return NotFound();
             }
-
+            viewModel.Stores = service.Stores();
+            viewModel.Vehicles = service.Vehicles();
             return this.View(viewModel);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(DetailEditViewModel model)
+        public IActionResult Edit(DetailEditViewModel input)
         {
             if (ModelState.IsValid)
             {
-                this.service.Edit(model);
+                this.service.Edit(input);
                 return this.RedirectToAction("All");
             }
-            return this.View(model);
+            return this.View(input);
         }
 
         public IActionResult Details(int? id)

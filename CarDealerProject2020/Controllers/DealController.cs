@@ -64,7 +64,9 @@ namespace CarDealerProject2020.Controllers
             {
                 return NotFound();
             }
-
+            viewModel.Sellers = service.Sellers();
+            viewModel.Buyers = service.Buyers();
+            viewModel.Cars = service.Cars();
             return this.View(viewModel);
         }
 

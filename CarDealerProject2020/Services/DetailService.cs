@@ -96,7 +96,7 @@ namespace CarDealerProject2020.Services
                 Color = model.Color,
                 Price = model.Price,
                 StoreId = model.StoreId,
-                
+                VehicleId = model.VehicleId,
             };
 
             this.dbContext.Details.Update(detail);

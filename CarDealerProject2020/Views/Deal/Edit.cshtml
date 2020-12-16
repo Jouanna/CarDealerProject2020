@@ -1,4 +1,5 @@
-﻿@model DealEditViewModel
+﻿@using CarDealerProject2020.Data.Enumerations
+@model DealEditViewModel
 
 @{
     ViewData["Title"] = "Редактирай";
@@ -14,17 +15,23 @@
     </style>
 </head>
 
+@{
+    var sellers = this.Model.Sellers.Select(x => new SelectListItem(x.Value, x.Key));
+    var buyers = this.Model.Buyers.Select(x => new SelectListItem(x.Value, x.Key));
+    var cars = this.Model.Cars.Select(x => new SelectListItem(x.Value, x.Key));
+}
+
 <form asp-action="Edit" asp-controller="Deal" method="post">
     <label asp-for="SellerId" class="alert-warning">Продавач</label>
-    <input asp-for="SellerId" class="alert-info" />
+    <select asp-for="SellerId" asp-items="sellers" class="alert-info"></select>
     <span asp-validation-for="SellerId" class="text-danger"></span><br />
 
     <label asp-for="BuyerId" class="alert-warning">Купувач</label>
-    <input asp-for="BuyerId" class="alert-info" />
+    <select asp-for="BuyerId" asp-items="buyers" class="alert-info"></select>
     <span asp-validation-for="BuyerId" class="text-danger"></span><br />
 
     <label asp-for="VehicleId" class="alert-warning">Автомобил</label>
-    <input asp-for="VehicleId" class="alert-info" />
+    <select asp-for="VehicleId" asp-items="cars" class="alert-info"></select>
     <span asp-validation-for="VehicleId" class="text-danger"></span><br />
 
     <label asp-for="Date" class="alert-warning">Дата</label>
@@ -35,15 +42,9 @@
     <input asp-for="Discount" class="alert-info" />
     <span asp-validation-for="Discount" class="text-danger"></span><br />
 
-    <form action="/action_page.php">
-        <label for="PaymentType" class="alert-warning">Начин на плащане</label>
-        <select class="alert-info" name="PaymentType" id="PaymentType">
-            <option value="Брой">Брой</option>
-            <option value="Карта">Карта</option>
-            <option value="Кредит">Кредит</option>
-        </select>
-        <br><br>
-    </form>
+    <label asp-for="PaymentType" class="alert-warning">Начин на плащане</label>
+    <select asp-for="PaymentType" asp-items="@Html.GetEnumSelectList<PaymentType>();" class="alert-info"></select>
+    <span asp-validation-for="PaymentType" class="text-danger"></span><br />
 
     <input type="submit" value="Запази" class="btn btn-outline-success" />
     <a asp-action="Index" class="btn btn-success">Назад</a>

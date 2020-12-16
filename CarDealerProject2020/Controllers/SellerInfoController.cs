@@ -51,11 +51,6 @@ namespace CarDealerProject2020.Controllers
 
         public IActionResult Edit(int? id)
         {
-            //var viewModel = new SellerInfoCreateViewModel
-            //{
-            //    Stores = this.service.Stores(),
-            //};
-            //return this.View(viewModel);
 
             if (id == null)
             {
@@ -68,6 +63,7 @@ namespace CarDealerProject2020.Controllers
             {
                 return NotFound();
             }
+            viewModel.Stores = this.service.Stores();
 
             return this.View(viewModel);
         }

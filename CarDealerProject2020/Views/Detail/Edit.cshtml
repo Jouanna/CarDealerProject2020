@@ -15,15 +15,19 @@
     </style>
 </head>
 
+@{
+    var stores = this.Model.Stores.Select(x => new SelectListItem(x.Value, x.Key));
+    var vehicles = this.Model.Vehicles.Select(x => new SelectListItem(x.Value, x.Key));
+}
 
 
-<form asp-action="Edit" asp-controller="SellerInfo" method="post">
+<form asp-action="Edit" asp-controller="Detail" method="post">
     <label asp-for="Type" class="alert-warning">Тип</label>
     <input asp-for="Type" class="alert-info" />
     <span asp-validation-for="Type" class="text-danger"></span><br />
 
     <label asp-for="VehicleId" class="alert-warning">Марка</label>
-    <input asp-for="VehicleId" class="alert-info" />
+    <select asp-for="VehicleId" asp-items="vehicles" class="alert-info" ></select>
     <span asp-validation-for="VehicleId" class="text-danger"></span><br />
 
     <label asp-for="Model" class="alert-warning">Модел</label>
@@ -51,7 +55,7 @@
     <span asp-validation-for="Price" class="text-danger"></span><br />
 
     <label asp-for="StoreId" class="alert-warning">Име на магазин</label>
-    <input asp-for="StoreId" class="alert-info" />
+    <select asp-for="StoreId" asp-items="stores" class="alert-info" ></select>
     <span asp-validation-for="StoreId" class="text-danger"></span><br />
 
     <input type="submit" value="Запази" class="btn btn-outline-success" />
