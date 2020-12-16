@@ -1,6 +1,7 @@
 ﻿using CarDealerProject2020.Services;
 using CarDealerProject2020.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +12,12 @@ namespace CarDealerProject2020.Controllers
     public class DealController : Controller
     {
         private readonly IDealService service;
+        private readonly IMemoryCache memoryCache;
 
-        public DealController(IDealService service)
+        public DealController(IDealService service, IMemoryCache memoryCache)
         {
             this.service = service;
+            this.memoryCache = memoryCache;
         }
         public IActionResult Index()
         {
@@ -23,7 +26,11 @@ namespace CarDealerProject2020.Controllers
 
         public IActionResult All()
         {
-            var viewModel = this.service.All();
+            if (!memoryCache.TryGetValue<IEnumerable<DealAllViewModel>>("AllDeals", out var viewModel))
+            {
+                viewModel = this.service.All();
+                memoryCache.Set("AllDeals", viewModel, TimeSpan.FromMinutes(2));
+            }
             return this.View(viewModel);
         }
 

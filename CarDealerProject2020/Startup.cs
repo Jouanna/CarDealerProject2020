@@ -43,6 +43,8 @@ namespace CarDealerProject2020
             services.AddTransient<IStoreService, StoreService>();
             services.AddTransient<IVehicleService, VehicleService>();
             //services.AddTransient<IVehicleDetailService, VehicleDetailService>();
+
+            services.AddMemoryCache();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
