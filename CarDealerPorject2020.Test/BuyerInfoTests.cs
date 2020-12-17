@@ -24,8 +24,8 @@ namespace CarDealerPorject2020.Test
             //act
             var model = new BuyerInfoCreateViewModel
             {
-                FirstName = "Boris",
-                LastName = "Stanchev",
+                FirstName = "Jouanna",
+                LastName = "Stancheva",
                 City = "Ruse",
             };
             service.Create(model);
@@ -45,8 +45,8 @@ namespace CarDealerPorject2020.Test
 
             var model = new BuyerInfoEditViewModel
             {
-                FirstName = "Boris",
-                LastName = "Stanchev",
+                FirstName = "Jouanna",
+                LastName = "Stancheva",
                 City = "Ruse",
             };
             service.Edit(model);
@@ -65,8 +65,8 @@ namespace CarDealerPorject2020.Test
 
             var model = new BuyerInfoCreateViewModel
             {
-                FirstName = "Boris",
-                LastName = "Stanchev",
+                FirstName = "Jouanna",
+                LastName = "Stancheva",
                 City = "Ruse",
             };
             service.Create(model);
@@ -87,8 +87,8 @@ namespace CarDealerPorject2020.Test
 
             var model = new BuyerInfoCreateViewModel
             {
-                FirstName = "Boris",
-                LastName = "Stanchev",
+                FirstName = "Jouanna",
+                LastName = "Stancheva",
                 City = "Ruse",
             };
             service.Create(model);
@@ -109,8 +109,8 @@ namespace CarDealerPorject2020.Test
 
             var model = new BuyerInfoCreateViewModel
             {
-                FirstName = "Boris",
-                LastName = "Stanchev",
+                FirstName = "Jouanna",
+                LastName = "Stancheva",
                 City = "Ruse",
             };
             service.Create(model);
